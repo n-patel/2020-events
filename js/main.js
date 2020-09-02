@@ -1,10 +1,6 @@
 const events = [
 	{
-		text: 'California wildfires',
-		date: 'August'
-	},
-	{
-		text: 'Hong Kong protests',
+		text: 'Protests erupted in Hong Kong',
 		date: 'January',
 	},
 	{
@@ -37,7 +33,7 @@ const events = [
 		date: 'January 31',
 	},
 	{
-		text: 'Parasite wins four Oscars',
+		text: 'Parasite won four Oscars',
 		date: 'Febuary 9',
 	},
 	{
@@ -45,7 +41,7 @@ const events = [
 		date: 'Febuary 11',
 	},
 	{
-		text: 'Harvey Weinstein convicted of rape',
+		text: 'Harvey Weinstein was convicted',
 		date: 'Febuary 24',
 	},
 	{
@@ -76,12 +72,12 @@ const events = [
 		date: 'July 2',
 	},
 	{
-		text: 'George Floyd is killed by police',
+		text: 'George Floyd was killed by police',
 		date: 'May 25',
 	},
 ]
 
-document.addEventListener("DOMContentLoaded", function() {
+function populateEvent(num) {
 	// const event = events[0];
 	const event = events[Math.floor(Math.random() * events.length)];
 
@@ -92,6 +88,39 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	const eventDate = '(' + event['date'] +')';
 
-	document.getElementById('event-text').innerText = eventText;
-	document.getElementById('event-date').innerText = eventDate;
+	document.getElementById('event-text-' + num).innerText = eventText;
+	document.getElementById('event-date-' + num).innerText = eventDate;
+}
+
+function populateEvents() {
+	populateEvent(1);
+	populateEvent(2);
+}
+
+document.addEventListener("DOMContentLoaded", populateEvents);
+
+
+let first_visible = true;
+
+document.getElementById("reloadButton").addEventListener("click", function() {
+	if (first_visible) {
+		populateEvent(2)
+		document.getElementById("first").classList.add("faded-out");
+		document.getElementById("second").classList.remove("faded-out");
+
+		document.getElementById("first").classList.add("slide-down");
+		document.getElementById("second").classList.remove("slide-down");
+	} else {
+		populateEvent(1)
+		document.getElementById("first").classList.remove("faded-out");
+		document.getElementById("second").classList.add("faded-out");
+
+		document.getElementById("first").classList.remove("slide-down");
+		document.getElementById("second").classList.add("slide-down");
+	}
+
+	first_visible = !first_visible;
 });
+
+document.getElementById("second").classList.add("faded-out");
+document.getElementById("second").classList.add("slide-down");
