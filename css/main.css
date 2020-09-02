@@ -1,0 +1,38 @@
+body {
+	font-family: 'Open Sans', 'Arial', sans-serif;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	min-height: 100vh;
+}
+
+.content {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	text-align: center;
+	margin: 10vw;
+
+/*
+	border: 1px solid gray;
+	border-radius: 6px;
+	padding: 0 50px;
+*/
+}
+
+.footer {
+	text-align: right;
+}
+
+#event-text {
+	margin-bottom: 10px;
+}
+
+#event-date {
+	margin-top: 0;
+	color: #545454;
+}
+
