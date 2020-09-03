@@ -1,5 +1,7 @@
 body {
 	font-family: 'Open Sans', 'Arial', sans-serif;
+	margin: 0;
+	padding: 0;
 }
 
 .container {
@@ -9,7 +11,7 @@ body {
 	min-height: 100vh;
 }
 
-.content, .event {
+.content, .event, #header {
 	position: absolute;
 	width: 100%;
 	text-align: center;
@@ -23,17 +25,36 @@ body {
 	top: 20vh;
 }
 
-#reloadButton {
+.footer {
 	position: absolute;
+	/*bottom: 10vh;*/
+	/*width: 100%;*/
+	text-align: center;
+	margin: 0 auto;
+	width: 200px;
+	height: 50px;
+	/*top: 0;*/
 	bottom: 10vh;
+	left: 0;
+	right: 0;
 }
 
-.footer {
-	text-align: right;
+#reloadButton {
+	border: 1px solid gray;
+	/*background-color: purple;*/
+	border-radius: 10px;
+	width: 200px; /*fit-content;*/
+	padding: 10px;
+}
+
+#reloadButton:hover {
+	cursor: pointer;
+	background-color: 
 }
 
 .event-text {
 	margin-bottom: 10px;
+	padding: 0 5vw;
 }
 
 .event-date {
