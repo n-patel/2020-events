@@ -9,16 +9,6 @@ body {
 	min-height: 100vh;
 }
 
-.content {
-	/*
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-	text-align: center;
-	margin: 10vw;
-	*/
-}
-
 .content, .event {
 	position: absolute;
 	width: 100%;
@@ -49,30 +39,5 @@ body {
 .event-date {
 	margin-top: 0;
 	color: #545454;
-}
-
-.toFade {
-	transition: all 0.5s;
-    -webkit-transition: all 0.5s;
-    /*opacity: 1;*/
-}
-
-.faded-out {
-    /*opacity: 0;*/
-}
-
-.slide-down {
-	transform: translateY(10%);
-	-webkit-transform: translateY(10%);
-}
-
-.slide-up {
-	transform: translateY(-10%);
-	-webkit-transform: translateY(-10%);
-}
-
-.toSlideBack {
-	transition: transform 1s 0.5s;
-	-webkit-transition: transform 1s 0.5s;
 }
 

@@ -77,8 +77,31 @@ const events = [
 	},
 ]
 
-function populateEvent(num) {
-	// const event = events[0];
+function spawnEvent() {
+	/* Create event in DOM */
+	const eventElement = document.createElement("div");
+	eventElement.id = "first";
+	eventElement.setAttribute("class", "event animate__animated animate__backInDown");
+
+	const header = document.createElement("h1");
+	header.setAttribute("class", "event-text");
+
+	const date = document.createElement("h4");
+	date.setAttribute("class", "event-date");
+
+	eventElement.appendChild(header);
+	eventElement.appendChild(date);
+
+	eventElement.addEventListener("animationend", function(e) {
+		if (e.animationName == "backOutDown") {
+			eventElement.remove();
+		}
+	});
+
+	document.querySelector(".content").appendChild(eventElement);
+
+
+	/* Set event contents */
 	const event = events[Math.floor(Math.random() * events.length)];
 
 	let eventText = event['text'];
@@ -88,39 +111,16 @@ function populateEvent(num) {
 
 	const eventDate = '(' + event['date'] +')';
 
-	document.getElementById('event-text-' + num).innerText = eventText;
-	document.getElementById('event-date-' + num).innerText = eventDate;
+	header.innerText = eventText;
+	date.innerText = eventDate;
 }
-
-function populateEvents() {
-	populateEvent(1);
-	populateEvent(2);
-}
-
-document.addEventListener("DOMContentLoaded", populateEvents);
-
-
-let first_visible = true;
 
 document.getElementById("reloadButton").addEventListener("click", function() {
-	if (first_visible) {
-		populateEvent(2)
-		document.getElementById("first").classList.add("faded-out");
-		document.getElementById("second").classList.remove("faded-out");
+	document.querySelector("#first").classList.add("animate__animated", "animate__backOutDown");
+	document.querySelector("#first").setAttribute("id", "");
 
-		document.getElementById("first").classList.add("slide-down");
-		document.getElementById("second").classList.remove("slide-down");
-	} else {
-		populateEvent(1)
-		document.getElementById("first").classList.remove("faded-out");
-		document.getElementById("second").classList.add("faded-out");
-
-		document.getElementById("first").classList.remove("slide-down");
-		document.getElementById("second").classList.add("slide-down");
-	}
-
-	first_visible = !first_visible;
+	spawnEvent();
 });
 
-document.getElementById("second").classList.add("faded-out");
-document.getElementById("second").classList.add("slide-down");
+spawnEvent()
+
