@@ -40,16 +40,18 @@ body {
 }
 
 #reloadButton {
-	border: 1px solid gray;
-	/*background-color: purple;*/
-	border-radius: 10px;
+	background: linear-gradient(90deg, #ff385c, #db2357);
+	border-radius: 6px;
 	width: 200px; /*fit-content;*/
 	padding: 10px;
+	color: #ffffff;
+	font-weight: 600;
 }
 
 #reloadButton:hover {
 	cursor: pointer;
-	background-color: 
+	/*background: linear-gradient(270deg, #ff385c, #db2357);*/
+	opacity: 0.85;
 }
 
 .event-text {
