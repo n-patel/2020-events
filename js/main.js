@@ -18,6 +18,21 @@ const fromList = [
 ];
 
 let events = [];
+
+// from https://bost.ocks.org/mike/shuffle/
+function shuffleInPlace(array) {
+	var m = array.length, t, i;
+
+	while (m) {
+		i = Math.floor(Math.random() * m--);
+
+		t = array[m];
+		array[m] = array[i];
+		array[i] = t;
+	}
+}
+
+
 function populateEvents() {
 	fromList.forEach(e => {
 		const [date, text, emoji] = e.split(': ')
@@ -28,24 +43,36 @@ function populateEvents() {
 			emoji: emoji
 		});
 	});
+
+	shuffleInPlace(events)
 }
+
+
+function sampleEvent() {
+	const e = events.shift();
+	events.push(e);
+	return e;
+}
+
+
+function createDOMElement(tag, id, classNames, parentElement) {
+	const element = document.createElement(tag);
+
+	if (classNames) { element.setAttribute("class", classNames); }
+	if (id) { element.id = id; }
+	if (parentElement) { parentElement.appendChild(element); }
+
+	return element;
+}
+
 
 function spawnEvent() {
 	/* Create event in DOM */
-	const eventElement = document.createElement("div");
-	eventElement.id = "first";
-	eventElement.setAttribute("class", "event animate__animated animate__backInDown");
+	const eventElement 	= createDOMElement("div", "first", "event animate__animated animate__backInDown");
+	const header 		= createDOMElement("h1", "event-text", null, eventElement);
+	const date 			= createDOMElement("h4", "event-date", null, eventElement);
 
-	const header = document.createElement("h1");
-	header.setAttribute("class", "event-text");
-
-	const date = document.createElement("h4");
-	date.setAttribute("class", "event-date");
-
-	eventElement.appendChild(header);
-	eventElement.appendChild(date);
-
-	eventElement.addEventListener("animationend", function(e) {
+	eventElement.addEventListener("animationend", e => {
 		if (e.animationName == "backOutDown") {
 			eventElement.remove();
 		}
@@ -55,7 +82,7 @@ function spawnEvent() {
 
 
 	/* Set event contents */
-	const event = events[Math.floor(Math.random() * events.length)];
+	const event = sampleEvent();
 
 	let eventText = event['text'];
 	if (event['emoji']) {

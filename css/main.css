@@ -54,12 +54,12 @@ body {
 	opacity: 0.85;
 }
 
-.event-text {
+#event-text {
 	margin-bottom: 10px;
 	padding: 0 5vw;
 }
 
-.event-date {
+#event-date {
 	margin-top: 0;
 	color: #545454;
 }
