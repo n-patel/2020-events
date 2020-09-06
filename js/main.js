@@ -1,6 +1,6 @@
 const fromList = [
 	'January: Protests erupt in Hong Kong',
-	'January 8: Prince Harry & Meghan Markle resigned from the royal family',
+	'January 8: Prince Harry & Meghan Markle resigned from the royal family: 👑',
 	'January 26: Kobe Bryant died in a plane crash',
 	'January: The US almost went to war with Iran',
 	'January: Trump was impeached',
@@ -16,6 +16,7 @@ const fromList = [
 	'July 2: Ghislaine Maxwell was arrested',
 	'May 25: George Floyd was killed by police',
 ];
+
 
 let events = [];
 
@@ -40,7 +41,7 @@ function populateEvents() {
 		events.push({
 			date: date,
 			text: text,
-			emoji: emoji
+			emoji: emoji || ""
 		});
 	});
 
@@ -68,7 +69,7 @@ function createDOMElement(tag, id, classNames, parentElement) {
 
 function spawnEvent() {
 	/* Create event in DOM */
-	const eventElement 	= createDOMElement("div", "first", "event animate__animated animate__backInDown");
+	const eventElement 	= createDOMElement("div", "toAnimate", "event animate__animated animate__backInDown");
 	const header 		= createDOMElement("h1", "event-text", null, eventElement);
 	const date 			= createDOMElement("h4", "event-date", null, eventElement);
 
@@ -82,25 +83,19 @@ function spawnEvent() {
 
 
 	/* Set event contents */
-	const event = sampleEvent();
-
-	let eventText = event['text'];
-	if (event['emoji']) {
-		eventText += ' ' + event['emoji'];
-	}
-
-	const eventDate = '(' + event['date'] +')';
-
-	header.innerText = eventText;
-	date.innerText = eventDate;
+	const eventContent = sampleEvent();
+	header.innerText = `${eventContent["text"]} ${eventContent["emoji"]}`;
+	date.innerText   = `(${eventContent["date"]})`;
 }
 
+
 document.getElementById("reloadButton").addEventListener("click", function() {
-	document.querySelector("#first").classList.add("animate__animated", "animate__backOutDown");
-	document.querySelector("#first").setAttribute("id", "");
+	document.querySelector("#toAnimate").classList.add("animate__animated", "animate__backOutDown");
+	document.querySelector("#toAnimate").setAttribute("id", "");
 
 	spawnEvent();
 });
+
 
 populateEvents();
 spawnEvent();
