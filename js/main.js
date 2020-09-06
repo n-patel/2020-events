@@ -1,81 +1,34 @@
-const events = [
-	{
-		text: 'Protests erupted in Hong Kong',
-		date: 'January',
-	},
-	{
-		text: 'Australia declared a state of emergency due to wildfires',
-		date: 'January',
-	},
-	{
-		text: 'Prince Harry & Meghan Markle resigned from the royal family',
-		date: 'January 8',
-		emoji: '👑'
-	},
-	{
-		text: 'Kobe Bryant died in a plane crash',
-		date: 'January 26',
-	},
-	{
-		text: 'The US almost went to war with Iran',
-		date: 'January',
-	},
-	{
-		text: 'Trump was impeached',
-		date: 'January',
-	},
-	{
-		text: 'Trump was acquitted',
-		date: 'Febuary',
-	},
-	{
-		text: 'The UK officially withdrew from the EU',
-		date: 'January 31',
-	},
-	{
-		text: 'Parasite won four Oscars',
-		date: 'Febuary 9',
-	},
-	{
-		text: 'The WHO named the disease COVID-19',
-		date: 'Febuary 11',
-	},
-	{
-		text: 'Harvey Weinstein was convicted',
-		date: 'Febuary 24',
-	},
-	{
-		text: 'The stock market had its worst single-day drop ever',
-		date: 'March 9',
-		emoji: '📉',
-	},
-	{
-		text: 'Italy declared nationwide quarantine',
-		date: 'March 8',
-	},
-	{
-		text: 'The price of oil became negative for the first time ever',
-		date: 'April 21',
-		emoji: '🛢️',
-	},
-	{
-		text: 'Murder hornets appeared in the US',
-		date: 'May',
-		emoji: '🐝',
-	},
-	{
-		text: 'Twitter was hacked by a 17-year-old',
-		date: 'July 15',
-	},
-	{
-		text: 'Ghislaine Maxwell was arrested',
-		date: 'July 2',
-	},
-	{
-		text: 'George Floyd was killed by police',
-		date: 'May 25',
-	},
-]
+const fromList = [
+	'January: Protests erupt in Hong Kong',
+	'January 8: Prince Harry & Meghan Markle resigned from the royal family',
+	'January 26: Kobe Bryant died in a plane crash',
+	'January: The US almost went to war with Iran',
+	'January: Trump was impeached',
+	'February: Trump was acquitted',
+	'January 31: The UK officially withdrew from the EU',
+	'February 9: Parasite won four Oscars',
+	'February 24: Harvey Weinstein was convicted',
+	'March 8: Italy declared nationwide quarantine',
+	'March 9: The stock market had its worst single-day drop ever: 📉',
+	'April 21: The price of oil became negative for the first time ever: 🛢️',
+	'May: Murder hornets appeared in the US: 🐝',
+	'July 15: Twitter was hacked by a 17-year-old',
+	'July 2: Ghislaine Maxwell was arrested',
+	'May 25: George Floyd was killed by police',
+];
+
+let events = [];
+function populateEvents() {
+	fromList.forEach(e => {
+		const [date, text, emoji] = e.split(': ')
+
+		events.push({
+			date: date,
+			text: text,
+			emoji: emoji
+		});
+	});
+}
 
 function spawnEvent() {
 	/* Create event in DOM */
@@ -122,5 +75,5 @@ document.getElementById("reloadButton").addEventListener("click", function() {
 	spawnEvent();
 });
 
-spawnEvent()
-
+populateEvents();
+spawnEvent();
