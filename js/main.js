@@ -1,3 +1,6 @@
+const ENTER_ANIMATION = "animate__backInLeft";
+const EXIT_ANIMATION = "animate__backOutRight";
+
 const fromList = [
 	"January 8: Prince Harry & Meghan Markle resigned from the royal family: 👑",
 	"January 14: Delta airlines flight 87 dumped fuel on a school playground outside LA, and 60 people were treated for skin irritation",
@@ -98,7 +101,7 @@ function createDOMElement(tag, id, classNames, parentElement) {
 
 function spawnEvent() {
 	/* Create event in DOM */
-	const eventElement 	= createDOMElement("div", "toAnimate", "event animate__animated animate__backInDown");
+	const eventElement 	= createDOMElement("div", "toAnimate", "event animate__animated " + ENTER_ANIMATION);
 	const header 		= createDOMElement("h1", "event-text", null, eventElement);
 	const date 			= createDOMElement("h4", "event-date", null, eventElement);
 
@@ -119,7 +122,7 @@ function spawnEvent() {
 
 
 document.getElementById("reloadButton").addEventListener("click", function() {
-	document.querySelector("#toAnimate").classList.add("animate__animated", "animate__backOutDown");
+	document.querySelector("#toAnimate").classList.add("animate__animated", EXIT_ANIMATION);
 	document.querySelector("#toAnimate").setAttribute("id", "");
 
 	spawnEvent();
