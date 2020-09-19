@@ -1,5 +1,5 @@
-const ENTER_ANIMATION = "animate__backInLeft";
-const EXIT_ANIMATION = "animate__backOutRight";
+const ENTER_ANIMATION = "animate__backInDown";
+const EXIT_ANIMATION = "animate__backOutDown";
 
 const fromList = [
 	"January 8: Prince Harry & Meghan Markle resigned from the royal family: 👑",
