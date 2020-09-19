@@ -108,6 +108,7 @@ function spawnEvent() {
 		}
 	});
 
+	eventElement.style.setProperty('--animate-duration', '1.5s');
 	document.querySelector(".content").appendChild(eventElement);
 
 	/* Set event contents */
