@@ -55,7 +55,7 @@ const fromList = [
 	"October 26: Amy Coney Barrett was confirmed to the Supreme Court",
 	"November 3: No clear winner was declared on election night for the U.S. Presidential election",
 	"November 3: Arizona, Montana, New Jersey, and South Dakota legalized recreational marijuana: 🌿",
-	"November 5: Steve Bannon was banned from Twitter after suggesting that Dr. Fauci be beheaded during a live broadcast"
+	"November 5: Steve Bannon was banned from Twitter after suggesting that Dr. Fauci be beheaded during a live broadcast",
 	"November 7: Joe Biden was projected as the winner of the 46th President of the US",
 	"November 7: Trump held a press conference in the parking lot of Four Seasons Total Landscaping: 🤔",
 	"November 18: Pfizer completed trials of their COVID-19 vaccine: 💉",
