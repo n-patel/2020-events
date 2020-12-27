@@ -37,17 +37,16 @@ const fromList = [
 	"August 6: Mark Zuckerberg's net worth passed $100 billion",
 	"August 10: Number of confirmed COVID-19 cases passed 20 million",
 	"August 11: Biden announced Kamala as his VP",
-	"August 13: The USPS tried to remove hundreds of mail sorting machines",
+	"August 13: The US Postal Service tried to remove hundreds of mail sorting machines",
 	"August 16: A huge thunderstorm kicked off hundreds of wildfires in California",
 	"August 20: Steve Bannon was arrested for fraud over a fundraising campaign for the US-Mexico wall",
 	"August 26: Jeff Bezos's net worth passed $200 billion (first person in history): 💰",
 	"August 30: Number of confirmed COVID-19 cases passed 25 million",
 	"September 2: Trump told North Carolina voters to commit voter fraud by voting twice",
 	"September 7: A gender reveal party burned more than 21k acres",
-	"September 16: Hurricane Sally made landfall in the southern US",
 	"September 18: Ruth Bader Ginsburg died at the age of 87",
 	"September 19: Oracle and Walmart acquired 20% of TikTok",
-	"September 27: The NYT revealed nuggets from Trump's tax records ($70k on haircuts, $420MM in debt, and paid $750 in taxes in 2016 and 2017)",
+	"September 27: The NYT revealed nuggets from Trump's tax records ($70k on haircuts, and paid $750 in taxes in 2016/2017)",
 	"September 29: The worldwide death toll from COVID-19 passed 1 million",
 	"October 1: Trump announced that he tested positive for COVID-19",
 	"October 7: A fly landed on Mike Pence during the Vice Presidential debate: 🪰",
@@ -131,7 +130,7 @@ function spawnEvent() {
 		}
 	});
 
-	eventElement.style.setProperty('--animate-duration', '1.5s');
+	eventElement.style.setProperty('--animate-duration', '1s');
 	document.querySelector(".content").appendChild(eventElement);
 
 	/* Set event contents */
